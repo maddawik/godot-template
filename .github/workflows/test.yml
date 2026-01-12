@@ -1,0 +1,24 @@
+name: Test 🧪
+
+on:
+  workflow_call:
+    inputs:
+      godot-version:
+        required: true
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Godot
+        uses: chickensoft-games/setup-godot@v2
+        with:
+          version: ${{ inputs.godot-version }}
+          include-templates: false
+
+      - name: Run GUT tests
+        run: |
+          godot --headless --import --quit > /dev/null 2>&1
+          make test

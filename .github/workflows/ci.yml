@@ -1,0 +1,10 @@
+name: CI ✔️
+
+on:
+  pull_request:
+
+jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+    with:
+      godot-version: "4.5.1"
