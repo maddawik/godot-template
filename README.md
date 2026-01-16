@@ -3,15 +3,15 @@
 A batteries-included template for quickly starting a game with the Godot Engine.
 
 ![Godot](https://img.shields.io/badge/Godot-4.5.1-blue)
-![GUT](https://img.shields.io/badge/GUT-9.5.0-green)
+![GUT](https://img.shields.io/badge/GUT-9.5.1-green)
 
 ## Batteries Included 🔋
 
 - Export presets for HTML5, Linux, Windows, and macOS
-- Default resolution: 1280×720 (easy to change)
 - Includes [GUT](https://github.com/bitwes/Gut) for testing
-- CI runs tests on pull requests
+- Provides continuous integration by running tests against pull requests
 - Release workflow publishes GitHub Releases and uploads builds to itch.io
+- Configuration for Neovim provided in `.lazy.lua`
 
 ## Getting Started 🎮
 
