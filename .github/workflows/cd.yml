@@ -71,12 +71,13 @@ jobs:
         with:
           name: HTML5
       - name: Deploy to Itch.io (HTML5)
-        uses: manleydev/butler-publish-itchio-action@master
+        uses: yeslayla/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: web
           ITCH_GAME: ${{ vars.ITCH_GAME }}
           ITCH_USER: ${{ vars.ITCH_NAME }}
+          VERSION: ${{ github.ref_name }}
           PACKAGE: HTML5.zip
 
   deploy-to-itchio-linux:
@@ -88,12 +89,13 @@ jobs:
         with:
           name: Linux
       - name: Deploy to Itch.io (Linux)
-        uses: manleydev/butler-publish-itchio-action@master
+        uses: yeslayla/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: linux
           ITCH_GAME: ${{ vars.ITCH_GAME }}
           ITCH_USER: ${{ vars.ITCH_NAME }}
+          VERSION: ${{ github.ref_name }}
           PACKAGE: Linux.zip
 
   deploy-to-itchio-windows:
@@ -105,12 +107,13 @@ jobs:
         with:
           name: Windows
       - name: Deploy to Itch.io (Windows)
-        uses: manleydev/butler-publish-itchio-action@master
+        uses: yeslayla/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: windows
           ITCH_GAME: ${{ vars.ITCH_GAME }}
           ITCH_USER: ${{ vars.ITCH_NAME }}
+          VERSION: ${{ github.ref_name }}
           PACKAGE: Windows.zip
 
   deploy-to-itchio-mac:
@@ -122,10 +125,11 @@ jobs:
         with:
           name: macOS
       - name: Deploy to Itch.io (MacOS)
-        uses: manleydev/butler-publish-itchio-action@master
+        uses: yeslayla/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: mac
           ITCH_GAME: ${{ vars.ITCH_GAME }}
           ITCH_USER: ${{ vars.ITCH_NAME }}
+          VERSION: ${{ github.ref_name }}
           PACKAGE: MacOS.zip
