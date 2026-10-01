@@ -2,6 +2,7 @@
 # This file is auto-generated as part of the release process.  GUT maintainers
 # should not change this file manually.
 static var class_ref = [
+	AccessibilityServer,
 	AudioServer,
 	CameraServer,
 	ClassDB,
@@ -10,6 +11,7 @@ static var class_ref = [
 	Engine,
 	EngineDebugger,
 	GDExtensionManager,
+	# excluded: GDScriptLanguageProtocol,
 	Geometry2D,
 	Geometry3D,
 	IP,
@@ -21,7 +23,9 @@ static var class_ref = [
 	NativeMenu,
 	NavigationMeshGenerator,
 	NavigationServer2D,
+	NavigationServer2DManager,
 	NavigationServer3D,
+	NavigationServer3DManager,
 	OS,
 	Performance,
 	PhysicsServer2D,
@@ -40,7 +44,7 @@ static var class_ref = [
 	WorkerThreadPool,
 	XRServer
 ]
-static var names = []
+static var names := []
 static func _static_init():
 	for entry in class_ref:
 		names.append(entry.get_class())
