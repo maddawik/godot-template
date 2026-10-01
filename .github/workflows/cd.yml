@@ -51,7 +51,6 @@ jobs:
           path: ${{ steps.export.outputs.archive_directory }}/MacOS.zip
       - name: Release
         uses: softprops/action-gh-release@v2
-        continue-on-error: true
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           generate_release_notes: true
