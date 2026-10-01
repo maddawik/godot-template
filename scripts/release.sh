@@ -121,10 +121,20 @@ echo
 echo "Latest tag:  ${latest_tag:-(none)}"
 echo "New tag:     $tag"
 echo "Commit:      $(git log -1 --format='%h %s')"
-if [[ -n $latest_tag ]]; then
-	echo "Changes:     $(git rev-list --count "$latest_tag..HEAD") commit(s) since $latest_tag"
-fi
 echo
+
+if [[ -n $latest_tag ]]; then
+	max_commits=20
+	commit_count=$(git rev-list --count "$latest_tag..HEAD")
+	echo "Changes since $latest_tag ($commit_count commit(s)):"
+	git --no-pager log --max-count="$max_commits" --format='  %h %s (%an, %ar)' "$latest_tag..HEAD"
+	if ((commit_count > max_commits)); then
+		echo "  ... and $((commit_count - max_commits)) more"
+	fi
+	echo
+	git --no-pager diff --shortstat "$latest_tag" HEAD | sed 's/^ */  /'
+	echo
+fi
 
 if [[ $dry_run == false && $assume_yes == false ]]; then
 	read -r -p "Create and push $tag to $REMOTE? [y/N] " reply || reply=""
