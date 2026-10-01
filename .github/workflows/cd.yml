@@ -7,7 +7,6 @@ on:
 
 env:
   GODOT_VERSION: "4.7.2"
-  GODOT_STATUS: "stable"
 jobs:
   test:
     uses: ./.github/workflows/test.yml
@@ -20,41 +19,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Export Game
-        id: export
-        uses: firebelley/godot-export@v7.0.0
+      - name: Setup Godot
+        uses: chickensoft-games/setup-godot@v2
         with:
-          godot_executable_download_url: "https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}/Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}_linux.x86_64.zip"
-          godot_export_templates_download_url: "https://github.com/godotengine/godot/releases/download/${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}/Godot_v${{ env.GODOT_VERSION }}-${{ env.GODOT_STATUS }}_export_templates.tpz"
-          relative_project_path: "./"
-          archive_output: true
-          cache: true
+          version: ${{ env.GODOT_VERSION }}
+          use-dotnet: false
+          include-templates: true
+      - name: Export Game
+        run: |
+          make import
+          make build
       - name: Upload HTML5
         uses: actions/upload-artifact@v4
         with:
           name: HTML5
-          path: ${{ steps.export.outputs.archive_directory }}/HTML5.zip
+          path: out/HTML5.zip
       - name: Upload Linux
         uses: actions/upload-artifact@v4
         with:
           name: Linux
-          path: ${{ steps.export.outputs.archive_directory }}/Linux.zip
+          path: out/Linux.zip
       - name: Upload Windows
         uses: actions/upload-artifact@v4
         with:
           name: Windows
-          path: ${{ steps.export.outputs.archive_directory }}/Windows.zip
+          path: out/Windows.zip
       - name: Upload MacOS
         uses: actions/upload-artifact@v4
         with:
           name: macOS
-          path: ${{ steps.export.outputs.archive_directory }}/MacOS.zip
+          path: out/MacOS.zip
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           generate_release_notes: true
-          files: ${{ steps.export.outputs.archive_directory }}/*
+          files: out/*.zip
 
   deploy-to-itchio:
     runs-on: ubuntu-latest
