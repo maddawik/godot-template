@@ -6,13 +6,13 @@ on:
       - "v*"
 
 env:
-  GODOT_VERSION: "4.5.1"
+  GODOT_VERSION: "4.7.2"
   GODOT_STATUS: "stable"
 jobs:
   test:
     uses: ./.github/workflows/test.yml
     with:
-      godot-version: "4.5.1"
+      godot-version: "4.7.2"
   export-game:
     permissions:
       contents: write

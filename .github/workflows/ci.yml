@@ -7,4 +7,4 @@ jobs:
   test:
     uses: ./.github/workflows/test.yml
     with:
-      godot-version: "4.5.1"
+      godot-version: "4.7.2"
