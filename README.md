@@ -2,8 +2,8 @@
 
 A batteries-included template for quickly starting a game with the Godot Engine.
 
-![Godot](https://img.shields.io/badge/Godot-4.5.1-blue)
-![GUT](https://img.shields.io/badge/GUT-9.5.1-green)
+![Godot](https://img.shields.io/badge/Godot-4.7.2-blue)
+![GUT](https://img.shields.io/badge/GUT-9.7.1-green)
 
 ## Batteries Included 🔋
 
@@ -11,7 +11,6 @@ A batteries-included template for quickly starting a game with the Godot Engine.
 - Includes [GUT](https://github.com/bitwes/Gut) for testing
 - Provides continuous integration by running tests against pull requests
 - Release workflow publishes GitHub Releases and uploads builds to itch.io
-- Configuration for Neovim provided in `.lazy.lua`
 
 ## Getting Started 🎮
 
@@ -35,6 +34,11 @@ BUTLER_API_KEY=YourButlerAPIKey
 ITCH_NAME=YourItchUsername
 ITCH_GAME=YourItchProject
 ```
+
+<!-- markdownlint-disable-next-line MD029 -->
+5. In Godot, open **Project → Export → MacOS** and change
+   **Application → Bundle Identifier** from the placeholder `com.godot.game`
+   to your own (e.g. `com.yourname.yourgame`).
 
 ### Publishing
 
