@@ -47,10 +47,15 @@ Now you can publish new releases of your game by pushing git tags.
 > [!NOTE]
 > Only tags that start with `v` will trigger a release
 
+Use `scripts/release.sh` to create and push the tag. It checks that you're on
+an up-to-date, clean `main`, picks the next version, and asks before pushing.
+
 ```sh
-git checkout <your-git-commit>
-git tag v1.0.0
-git push --tags
+# Preview the next patch release without changing anything
+./scripts/release.sh --dry-run patch
+
+# Release it (or use minor, major, or an exact version like 1.2.0)
+./scripts/release.sh patch
 ```
 
 This creates a GitHub Release with build artifacts and uploads them to your
