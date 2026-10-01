@@ -66,7 +66,7 @@ jobs:
         with:
           name: HTML5
       - name: Deploy to Itch.io (HTML5)
-        uses: yeslayla/butler-publish-itchio-action@master
+        uses: yeslayla/butler-publish-itchio-action@483157ebeeeb440e2fdc9f162f3fcfc27028c0ef # v1.2.0
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: web
@@ -84,7 +84,7 @@ jobs:
         with:
           name: Linux
       - name: Deploy to Itch.io (Linux)
-        uses: yeslayla/butler-publish-itchio-action@master
+        uses: yeslayla/butler-publish-itchio-action@483157ebeeeb440e2fdc9f162f3fcfc27028c0ef # v1.2.0
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: linux
@@ -102,7 +102,7 @@ jobs:
         with:
           name: Windows
       - name: Deploy to Itch.io (Windows)
-        uses: yeslayla/butler-publish-itchio-action@master
+        uses: yeslayla/butler-publish-itchio-action@483157ebeeeb440e2fdc9f162f3fcfc27028c0ef # v1.2.0
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: windows
@@ -120,7 +120,7 @@ jobs:
         with:
           name: macOS
       - name: Deploy to Itch.io (MacOS)
-        uses: yeslayla/butler-publish-itchio-action@master
+        uses: yeslayla/butler-publish-itchio-action@483157ebeeeb440e2fdc9f162f3fcfc27028c0ef # v1.2.0
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_API_KEY }}
           CHANNEL: mac
