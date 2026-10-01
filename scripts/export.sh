@@ -5,6 +5,10 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
+# Keep Godot from importing (and packing) earlier exports into later ones.
+mkdir -p out
+touch out/.gdignore
+
 while IFS=$'\t' read -r preset export_path; do
 	export_dir=$(dirname "$export_path")
 	archive="out/$preset.zip"
