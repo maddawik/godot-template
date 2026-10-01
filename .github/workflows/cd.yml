@@ -20,10 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: install wine
-        run: |
-          sudo apt install wine64
-          echo "WINE_PATH=$(which wine64)" >> $GITHUB_ENV
       - name: Export Game
         id: export
         uses: firebelley/godot-export@v7.0.0
@@ -33,7 +29,6 @@ jobs:
           relative_project_path: "./"
           archive_output: true
           cache: true
-          wine_path: ${{ env.WINE_PATH }}
       - name: Upload HTML5
         uses: actions/upload-artifact@v4
         with:
