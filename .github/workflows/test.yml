@@ -17,8 +17,9 @@ jobs:
         with:
           version: ${{ inputs.godot-version }}
           include-templates: false
+          use-dotnet: false
 
       - name: Run GUT tests
         run: |
-          godot --headless --import --quit > /dev/null 2>&1
+          make import
           make test
